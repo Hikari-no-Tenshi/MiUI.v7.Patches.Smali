@@ -1,0 +1,39 @@
+appfile <zxing.jar>;
+
+# AntiSpam.apk
+
+replaceinfile "%smali%/../../../appDecompiled/system__app/AntiSpam.apk/res/values-lt/strings.xml" "&lt;![CDATA[SMS: <font color="#5fab1b">%d</font>]]>" "SMS: &lt;font color=#5fab1b>%d&lt;/font>";
+replaceinfile "%smali%/../../../appDecompiled/system__app/AntiSpam.apk/res/values-lt/strings.xml" "&lt;![CDATA[Calls: <font color="#5fab1b">%d</font>]]>" "Calls: &lt;font color=#5fab1b>%d&lt;/font>";
+
+# MiuiGallery.apk
+
+replaceinfile "%smali%/../../../appDecompiled/system__priv-app/MiuiGallery.apk/res/values-lt/strings.xml"    "&lt;![CDATA[Sulieti šį albumą su %s?]]>" "Sulieti šį albumą su %s?";
+replaceinfile "%smali%/../../../appDecompiled/system__priv-app/MiuiGallery.apk/res/values-lt/strings.xml"    "&lt;![CDATA[Sulieti šiuos albumus su %s?]]>" "Sulieti šiuos albumus su %s?";
+replaceinfile "%smali%/../../../appDecompiled/system__priv-app/MiuiGallery.apk/res/values-lt/strings.xml"    "Nekorektiški gavėjai: <xliff:g id="name">%1$s</xliff:g>" "Nekorektiški gavėjai: %1$s";
+replaceinfile "%smali%/../../../appDecompiled/system__priv-app/MiuiGallery.apk/res/values-lt/strings.xml"    "<xliff:g id="number" example="123">%1$s</xliff:g><xliff:g id="unit" example="KB">%2$s</xliff:g>" "%1$s%2$s";
+replaceinfile "%smali%/../../../appDecompiled/system__priv-app/MiuiGallery.apk/res/values-lt/strings.xml"    "Santykiai su <xliff:g id="BABY_NAME">%1$s</xliff:g>" "Santykiai su %1$s";
+replaceinfile "%smali%/../../../appDecompiled/system__priv-app/MiuiGallery.apk/res/values-lt/strings.xml"    "Pakviesti <xliff:g id="BABY_NAME">%1$s</xliff:g> <xliff:g id="SHARER_RELATION">%2$s</xliff:g>" "Pakviesti %1$s %2$s";
+replaceinfile "%smali%/../../../appDecompiled/system__priv-app/MiuiGallery.apk/res/values-lt/strings.xml"    "&lt;![CDATA[Ar jūs isitikinęs kad tai "<b><font color="#323232">%1$s</font></b>"? Šis veidas bus perkeltas į \"%2$s\" albumą po patvirtinimo.]]>" "Ar jūs isitikinęs kad tai &lt;font color=#323232>&lt;b>%1$s&lt;/b>&lt;/font>? Šis veidas bus perkeltas į \"%2$s\" albumą po patvirtinimo.";
+replaceinfile "%smali%/../../../appDecompiled/system__priv-app/MiuiGallery.apk/res/values-lt/strings.xml"    "&lt;![CDATA[Ar jūs isitikinę, kad tai "<b><font color="#323232">%1$s</font></b>"? Šie veidai bus perkelti į \"%2$s\" albumą po patvirtinimo.]]>" "Ar jūs isitikinę, kad tai &lt;font color=#323232>&lt;b>%1$s&lt;/b>&lt;/font>? Šie veidai bus perkelti į \"%2$s\" albumą po patvirtinimo.";
+replaceinfile "%smali%/../../../appDecompiled/system__priv-app/MiuiGallery.apk/res/values-lt/strings.xml"    "&lt;![CDATA[Ar jūs isitikinęs kad tai ne "<b><font color="#323232">%1$s</font></b>"? Šis veidas bus perkeltas į \"%2$s\" albumą po patvirtinimo.]]>" "Ar jūs isitikinęs kad tai ne &lt;font color=#323232>&lt;b>%1$s&lt;/b>&lt;/font>? Šis veidas bus perkeltas į \"%2$s\" albumą po patvirtinimo.";
+replaceinfile "%smali%/../../../appDecompiled/system__priv-app/MiuiGallery.apk/res/values-lt/strings.xml"    "&lt;![CDATA[Ar jūs isitikinę, kad tai ne "<b><font color="#323232">%1$s</font></b>"? Šie veidai bus perkelti į \"%2$s\" albumą po patvirtinimo.]]>" "Ar jūs isitikinę, kad tai ne &lt;font color=#323232>&lt;b>%1$s&lt;/b>&lt;/font>? Šie veidai bus perkelti į \"%2$s\" albumą po patvirtinimo.";
+
+# Notes.apk
+
+replaceinfile "%smali%/../../../appDecompiled/system__app/Notes.apk/res/values-lt/strings.xml" "<xliff:g id="note_terms">%1$s</xliff:g> ir <xliff:g id="folder_terms">%2$s</xliff:g>" "%1$s ir %2$s";
+replaceinfile "%smali%/../../../appDecompiled/system__app/Notes.apk/res/values-lt/strings.xml" "Aukšta (<xliff:g id="size">%1$s</xliff:g>)" "Aukšta (%1$s)";
+replaceinfile "%smali%/../../../appDecompiled/system__app/Notes.apk/res/values-lt/strings.xml" "Sinchronizuoti užrašus su Mi Paskyra (<xliff:g id="accountName" example="100000">%1$s</xliff:g>)?" "Sinchronizuoti užrašus su Mi Paskyra (%1$s)?";
+replaceinfile "%smali%/../../../appDecompiled/system__app/Notes.apk/res/values-lt/strings.xml" "[Paveikslėlis <xliff:g id="imageName" example="1.jpeg">%1$s</xliff:g>]" "[Paveikslėlis %1$s]";
+replaceinfile "%smali%/../../../appDecompiled/system__app/Notes.apk/res/values-lt/strings.xml" "<xliff:g id="all_terms">%1$s</xliff:g>" "%1$s";
+replaceinfile "%smali%/../../../appDecompiled/system__app/Notes.apk/res/values-lt/strings.xml" "Perkelta: <xliff:g id="note_terms">%1$s</xliff:g>" "Perkelta: %1$s";
+replaceinfile "%smali%/../../../appDecompiled/system__app/Notes.apk/res/values-lt/strings.xml" "Užrašas <xliff:g id="note_terms">%1$s</xliff:g> perkeltas į %2$s" "Užrašas %1$s perkeltas į %2$s";
+replaceinfile "%smali%/../../../appDecompiled/system__app/Notes.apk/res/values-lt/strings.xml" "Ištrinti <xliff:g id="all_terms">%1$s</xliff:g>?" "Ištrinti %1$s?";
+
+# PackageInstaller.apk
+
+replaceinfile "%smali%/../../../appDecompiled/system__app/PackageInstaller.apk/res/values-lt/strings.xml" "&lt;![CDATA[Mes negalime užtikrinti programų autentiškumo jei jos nėra įdiegiamos iš <font color="#91c727"><u>Programų Parduotuvės</u></font>.]]>" "Mes negalime užtikrinti programų autentiškumo jei jos nėra įdiegiamos iš &lt;u>&lt;font color=#91c727>Programų Parduotuvės&lt;/font>&lt;/u>";
+replaceinfile "%smali%/../../../appDecompiled/system__app/PackageInstaller.apk/res/values-lt/strings.xml" "&lt;![CDATA[Rekomenduojame įdiegti programą iš <u>Šriftas<font color="#91c727">Programų Parduotuvė</font></u> ]]>" "Rekomenduojame įdiegti programą iš &lt;u>&lt;font color=#91c727>Programų Parduotuvė&lt;/font>&lt;/u>";
+replaceinfile "%smali%/../../../appDecompiled/system__app/PackageInstaller.apk/res/values-lt/strings.xml" "Ruošiamasi perkrovimui… (<xliff:g id="reboot_time">%1$s</xliff:g>)" "Ruošiamasi perkrovimui… (%1$s)";
+replaceinfile "%smali%/../../../appDecompiled/system__app/PackageInstaller.apk/res/values-lt/strings.xml" "<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="NEW_VERSION">%2$s</xliff:g>) pakeis dabar įdiegtą versiją (<xliff:g id="ORI_VERSION">%3$s</xliff:g>). Visi programos duomenys bus išsaugoti." "%1$s (%2$s) pakeis dabar įdiegtą versiją (%3$s). Visi programos duomenys bus išsaugoti.";
+replaceinfile "%smali%/../../../appDecompiled/system__app/PackageInstaller.apk/res/values-lt/strings.xml" "Techninį palaikymą teikia <xliff:g id="SUPPORT">%1$s</xliff:g>" "Techninį palaikymą teikia %1$s";
+replaceinfile "%smali%/../../../appDecompiled/system__app/PackageInstaller.apk/res/values-lt/strings.xml" "Teisių prašymas nuo <xliff:g id="APP_NAME">%1$s</xliff:g>" "Teisių prašymas nuo %1$s";

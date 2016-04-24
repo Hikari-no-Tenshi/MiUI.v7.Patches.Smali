@@ -1,0 +1,57 @@
+appfile <Settings.apk>;
+
+# Add 18 framework to apktool.yml
+
+replaceinfile "%smali%/../apktool.yml" "- 17" "- 17\n  - 18";
+#replaceinfile "%smali%/../apktool.yml" "  tag:" "  - 18\n  tag:";
+#replaceinfile "%smali%/../apktool.yml" "sdkInfo:" "  - 18\nsdkInfo:";
+
+# Icons in Other settings
+
+replaceinfile "%res%/xml/other_personal_settings.xml" "<Preference android:title="@string/security_privacy_settings_title" "<Preference android:icon="@drawable/ic_security_settings" android:title="@string/security_privacy_settings_title";
+replaceinfile "%res%/xml/other_personal_settings.xml" "<Preference android:title="@string/date_and_time_settings_title" "<Preference android:icon="@drawable/ic_date_time_settings" android:title="@string/date_and_time_settings_title";
+replaceinfile "%res%/xml/other_personal_settings.xml" "<Preference android:title="@string/language_settings" "<Preference android:icon="@drawable/ic_language_settings" android:title="@string/language_settings";
+replaceinfile "%res%/xml/other_personal_settings.xml" "<Preference android:title="@string/handy_mode" "<Preference android:icon="@drawable/ic_accelerometer_settings" android:title="@string/handy_mode";
+replaceinfile "%res%/xml/other_personal_settings.xml" "<Preference android:title="@string/power_usage_summary_title" "<Preference android:icon="@drawable/ic_battery_settings" android:title="@string/power_usage_summary_title";
+replaceinfile "%res%/xml/other_personal_settings.xml" "<Preference android:title="@string/storage_settings" "<Preference android:icon="@drawable/ic_storage_settings" android:title="@string/storage_settings";
+replaceinfile "%res%/xml/other_personal_settings.xml" "<Preference android:title="@string/led_settings" "<Preference android:icon="@drawable/ic_led_settings" android:title="@string/led_settings";
+replaceinfile "%res%/xml/other_personal_settings.xml" "<Preference android:title="@string/music_headset_settings" "<Preference android:icon="@drawable/music_ic_headset_settings" android:title="@string/music_headset_settings";
+replaceinfile "%res%/xml/other_personal_settings.xml" "<Preference android:title="@string/key_settings_title" "<Preference android:icon="@drawable/ic_key_settings" android:title="@string/key_settings_title";
+replaceinfile "%res%/xml/other_personal_settings.xml" "<Preference android:title="@string/print_settings" "<Preference android:icon="@drawable/ic_bt_imaging" android:title="@string/print_settings";
+replaceinfile "%res%/xml/other_personal_settings.xml" "<Preference android:title="@string/accessibility_settings" "<Preference android:icon="@drawable/ic_accessibility_settings" android:title="@string/accessibility_settings";
+replaceinfile "%res%/xml/other_personal_settings.xml" "<Preference android:title="@string/development_settings_title" "<Preference android:icon="@drawable/ic_development_settings" android:title="@string/development_settings_title";
+replaceinfile "%res%/xml/other_personal_settings.xml" "<Preference android:title="@string/privacy_settings" "<Preference android:icon="@drawable/com_miui_backup" android:title="@string/privacy_settings";
+replaceinfile "%res%/xml/other_personal_settings.xml" "<PreferenceScreen android:title="@string/onekey_migrate" "<PreferenceScreen android:icon="@drawable/ic_android_beam_settings" android:title="@string/onekey_migrate";
+
+# Add plug in charger sound setting
+
+replaceinfile "%smali%/com/android/settings/SoundSettings.smali" "instance fields" "instance fields\n\n.field private mChargingSounds:Landroid/preference/CheckBoxPreference;";
+
+replaceinmethod "%smali%/com/android/settings/SoundSettings.smali" ".method public onCreate(Landroid/os/Bundle;)V" "return-void" "const/4 v3, 0x0\n\n    const-string v2, "charging_sounds"\n\n    move-object/from16 v0, p0\n\n    invoke-virtual {v0, v2}, Lcom/android/settings/SoundSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;\n\n    move-result-object v1\n\n    check-cast v1, Landroid/preference/CheckBoxPreference;\n\n    iput-object v1, v0, Lcom/android/settings/SoundSettings;->mChargingSounds:Landroid/preference/CheckBoxPreference;\n\n    invoke-virtual {v0}, Lcom/android/settings/SoundSettings;->getContentResolver()Landroid/content/ContentResolver;\n\n    move-result-object v0\n\n    invoke-static {v0, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I\n\n    move-result v2\n\n    if-nez v2, :cond_3a\n\n    const/4 v3, 0x1\n\n    :cond_3a\n\n    invoke-virtual {v1, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V\n\n    return-void";
+
+replaceinmethod "%smali%/com/android/settings/SoundSettings.smali" ".method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z" ".prologue" ".prologue\n    iget-object v0, p0, Lcom/android/settings/SoundSettings;->mChargingSounds:Landroid/preference/CheckBoxPreference;\n\n    const/4 v1, 0x0\n\n    if-ne p2, v0, :cond_3b\n\n    const-string v3, "charging_sounds"\n\n    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z\n\n    move-result v2\n\n    if-nez v2, :cond_3a\n\n    const/4 v1, 0x1\n\n    :cond_3a\n\n    invoke-virtual {p0}, Lcom/android/settings/SoundSettings;->getContentResolver()Landroid/content/ContentResolver;\n\n    move-result-object v0\n\n    invoke-static {v0, v3, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z\n\n    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z\n\n    move-result v2\n\n    return v2\n\n    :cond_3b";
+
+replaceinfile "%res%/xml/sound_settings.xml" "android:key="lock_sounds" android:defaultValue="true" />" "android:key="lock_sounds" android:defaultValue="true" /> \n    <CheckBoxPreference android:title="@string/charging_sounds" android:key="charging_sounds" android:defaultValue="true" />";
+
+# Move cursor with volume keys
+
+replaceinfile "%smali%/com/android/settings/KeySettings.smali" "# instance fields" "# instance fields\n\n.field private mVolumeKeyCursorControl:Landroid/preference/ListPreference;";
+
+replaceinmethod "%smali%/com/android/settings/KeySettings.smali" ".method public onCreate(Landroid/os/Bundle;)V" "return-void" "const-string v0, "volume_key_cursor_control"\n\n    invoke-virtual {p0, v0}, Lcom/android/settings/KeySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;\n\n    move-result-object v0\n\n    check-cast v0, Landroid/preference/ListPreference;\n\n    iput-object v0, p0, Lcom/android/settings/KeySettings;->mVolumeKeyCursorControl:Landroid/preference/ListPreference;\n\n    iget-object v0, p0, Lcom/android/settings/KeySettings;->mVolumeKeyCursorControl:Landroid/preference/ListPreference;\n\n    invoke-virtual {v0, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V\n\n    return-void";
+
+replaceinmethod "%smali%/com/android/settings/KeySettings.smali" ".method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z" ".locals 4" ".locals 4\n\n    iget-object v0, p0, Lcom/android/settings/KeySettings;->mVolumeKeyCursorControl:Landroid/preference/ListPreference;\n\n    if-ne v0, p1, :cond_40\n\n    if-eqz v0, :cond_40\n\n    iget-object v0, p0, Lcom/android/settings/KeySettings;->mVolumeKeyCursorControl:Landroid/preference/ListPreference;\n\n    check-cast p2, Ljava/lang/String;\n\n    invoke-virtual {v0, p2}, Landroid/preference/ListPreference;->findIndexOfValue(Ljava/lang/String;)I\n\n    move-result v0\n\n    invoke-virtual {p0}, Lcom/android/settings/KeySettings;->getContentResolver()Landroid/content/ContentResolver;\n\n    move-result-object v1\n\n    const-string v2, "volume_key_cursor_control"\n\n    invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z\n\n    iget-object v1, p0, Lcom/android/settings/KeySettings;->mVolumeKeyCursorControl:Landroid/preference/ListPreference;\n\n    invoke-virtual {v1, v0}, Landroid/preference/ListPreference;->setValueIndex(I)V\n\n    invoke-virtual {v1}, Landroid/preference/ListPreference;->getEntry()Ljava/lang/CharSequence;\n\n    move-result-object v0\n\n    invoke-virtual {v1, v0}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V\n\n    const/4 v0, 0x1\n\n    return v0\n\n    :cond_40";
+
+replaceinmethod "%smali%/com/android/settings/KeySettings.smali" ".method public onResume()V" ".locals 1" ".locals 3";
+
+replaceinmethod "%smali%/com/android/settings/KeySettings.smali" ".method public onResume()V" "    return-void" "    iget-object v0, p0, Lcom/android/settings/KeySettings;->mVolumeKeyCursorControl:Landroid/preference/ListPreference;\n\n    if-eqz v0, :cond_20\n\n    invoke-virtual {p0}, Lcom/android/settings/KeySettings;->getContentResolver()Landroid/content/ContentResolver;\n\n    move-result-object v0\n\n    const-string v1, "volume_key_cursor_control"\n\n    const/4 v2, 0x0\n\n    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I\n\n    move-result v0\n\n    iget-object v1, p0, Lcom/android/settings/KeySettings;->mVolumeKeyCursorControl:Landroid/preference/ListPreference;\n\n    invoke-virtual {v1}, Landroid/preference/ListPreference;->getEntries()[Ljava/lang/CharSequence;\n\n    move-result-object v1\n\n    array-length v1, v1\n\n    add-int/lit8 v1, v1, -0x1\n\n    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I\n\n    move-result v0\n\n    iget-object v1, p0, Lcom/android/settings/KeySettings;->mVolumeKeyCursorControl:Landroid/preference/ListPreference;\n\n    invoke-virtual {v1, v0}, Landroid/preference/ListPreference;->setValueIndex(I)V\n\n    iget-object v0, p0, Lcom/android/settings/KeySettings;->mVolumeKeyCursorControl:Landroid/preference/ListPreference;\n\n    invoke-virtual {v0}, Landroid/preference/ListPreference;->getEntry()Ljava/lang/CharSequence;\n\n    move-result-object v1\n\n    invoke-virtual {v0, v1}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V\n\n    :cond_20\n\n    return-void";
+
+replaceinfile "%res%/xml/key_settings.xml" "    </PreferenceCategory>\n</PreferenceScreen>" "    </PreferenceCategory>\n    <PreferenceCategory android:title="@string/volbtn_cursor_control_title" />\n    <ListPreference android:entries="@array/volbtn_cursor_control_entries" android:title="@string/volbtn_cursor_control_title" android:key="volume_key_cursor_control"  android:entryValues="@array/volbtn_cursor_control_values" />\n</PreferenceScreen>";
+
+# Fix IMEI info
+
+methodreplace "%smali%/com/android/settings/msim/ImeiFragment.smali" ".method public getName()Ljava/lang/String;" "%here%/Settings.apk/getName.m";
+
+# Fix EngineerMode
+
+replaceinfile "%smali%/com/android/settings/MiuiDeviceInfoSettings.smali" ""6484"" ""13411"";
+

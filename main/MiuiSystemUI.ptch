@@ -1,0 +1,15 @@
+appfile <MiuiSystemUI.apk>;
+
+# Enabling/Disabling sound when charger plug on "ro.mute.power_sounds" in build.prop
+
+methodreplace "%smali%/com/android/systemui/power/PowerUI.smali" ".method playBatterySound(Landroid/net/Uri;)V" "%here%/MiuiSystemUI.apk/playBatterySound.m";
+
+# Recent Task Manager
+
+methodreplace "%smali%/com/android/systemui/taskmanager/RecentTasksManager.smali" ".method public static getFormatedMemory(J)Ljava/lang/String;" "%here%/MiuiSystemUI.apk/getFormatedMemory.m";
+
+replaceinfile "%smali%/miui/external/Application.smali" "# static fields" "# static fields\n.field private static mContext:Landroid/content/Context;\n.field public static PACKAGE_NAME:Ljava/lang/String;\n";
+
+replaceinfile "%smali%/miui/external/Application.smali" "invoke-super {p0}, Landroid/app/Application;->onCreate()V" "invoke-super {p0}, Landroid/app/Application;->onCreate()V\n\n    sput-object p0, Lmiui/external/Application;->mContext:Landroid/content/Context;\n\n    invoke-virtual {p0}, Lmiui/external/Application;->getApplicationContext()Landroid/content/Context;\n\n    move-result-object v0\n\n    invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;\n\n    move-result-object v0\n\n    sput-object v0, Lmiui/external/Application;->PACKAGE_NAME:Ljava/lang/String;";
+
+replaceinfile "%smali%/miui/external/Application.smali" "# virtual methods" ".method public static getContext()Landroid/content/Context;\n    .locals 1\n\n    .prologue\n    .line 19\n    sget-object v0, Lmiui/external/Application;->mContext:Landroid/content/Context;\n\n    return-object v0\n.end method\n\n# virtual methods";

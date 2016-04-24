@@ -1,0 +1,15 @@
+appfile <framework-ext-res.apk>;
+
+# Remove garbage
+
+delete "%res%/drawable-hdpi-v4/circle_progress_background.png";
+delete "%res%/drawable-hdpi-v4/circle_progress_foreground.png";
+delete "%res%/drawable-hdpi-v4/ic_audio_bg.9.png";
+delete "%res%/drawable-hdpi-v4/ic_audio_divider.png";
+delete "%res%/drawable-hdpi-v4/ic_audio_headset.png";
+delete "%res%/drawable-hdpi-v4/ic_audio_media.png";
+delete "%res%/drawable-hdpi-v4/ic_audio_progress.png";
+delete "%res%/drawable-hdpi-v4/ic_audio_ring_notif.png";
+delete "%res%/drawable-hdpi-v4/ic_audio_ring_notif_mute.png";
+delete "%res%/drawable-hdpi-v4/ic_audio_ring_notif_vibrate.png";
+delete "%res%/drawable-hdpi-v4/ic_audio_speaker.png";

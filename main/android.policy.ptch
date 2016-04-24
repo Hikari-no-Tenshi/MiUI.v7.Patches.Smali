@@ -1,0 +1,5 @@
+appfile <android.policy.jar>;
+
+# Extended reboot menu
+
+methodreplace "%smali%/com/android/internal/policy/impl/MiuiGlobalActions$1.smali" ".method public onCommand(Ljava/lang/String;Ljava/lang/Double;Ljava/lang/String;)V" "%here%/android.policy.jar/onCommand.m";

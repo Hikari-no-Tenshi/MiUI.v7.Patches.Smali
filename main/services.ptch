@@ -1,0 +1,16 @@
+appfile <services.jar>;
+
+# Reduce minimal brightness
+
+replaceinfile "%smali%/com/android/server/power/DisplayPowerController.smali" "0xa" "0x1";
+
+# Lower autobrightness delay time
+
+replaceinfile "%smali%/com/android/server/power/DisplayPowerController.smali" "BRIGHTENING_LIGHT_DEBOUNCE:J = 0xfa0L" "BRIGHTENING_LIGHT_DEBOUNCE:J = 0x7d0L";
+replaceinfile "%smali%/com/android/server/power/DisplayPowerController.smali" "DARKENING_LIGHT_DEBOUNCE:J = 0xfa0L" "DARKENING_LIGHT_DEBOUNCE:J = 0x7d0L";
+replaceinfile "%smali%/com/android/server/power/DisplayPowerController.smali" "const-wide/16 v11, 0xfa0" "const-wide/16 v11, 0x7d0";
+replaceinfile "%smali%/com/android/server/power/DisplayPowerController.smali" "waiting for 4000 ms" "waiting for 2000 ms";
+
+# Fix button backlight
+
+copy "%here%/services.jar/PowerManagerService/power" "%smali%/com/android/server/power";

@@ -1,0 +1,4 @@
+appfile <MiuiVideo.apk>;
+
+# Change Device
+replaceinfile "%smali%/com/miui/videoplayer/common/DuoKanConstants.smali" "HM2014011" "S650_ROW";

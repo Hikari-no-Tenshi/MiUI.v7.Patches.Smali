@@ -1,0 +1,4 @@
+appfile <wt_version_query.apk>;
+
+# Change Device
+replaceinfile "%smali%/com/wt/version_query/Wt_version_queryActivity.smali" "HM2014011" "S650_ROW";

@@ -1,0 +1,5 @@
+appfile <framework-ext-res.apk>;
+
+# Disable Dirac
+
+replaceinfile "%res%/values/bools.xml" "<bool name="is_dirac_supported">true</bool>" "<bool name="is_dirac_supported">false</bool>";

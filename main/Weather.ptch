@@ -1,0 +1,13 @@
+appfile <Weather.apk>;
+
+# Fix compilation
+
+delete "%res%/drawable-xhdpi";
+
+# Fix FC
+
+methodreplace "%smali%/com/miui/weather2/view/onOnePage/Indices.smali" ".method private generatePrecip1hr(Lcom/miui/weather2/structures/IndicesData;ILandroid/content/res/Resources;)Landroid/view/View;" "%here%/Weather.apk/generatePrecip1hr.m";
+
+# Wind speed in m/s
+
+methodreplace "%smali%/com/miui/weather2/structures/RealtimeData.smali" ".method public static convertSpeedToLevelDesc(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;" "%here%/Weather.apk/convertSpeedToLevelDesc.m";

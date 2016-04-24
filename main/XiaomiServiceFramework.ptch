@@ -1,0 +1,5 @@
+appfile <XiaomiServiceFramework.apk>;
+
+# Remove Unactivated SimCard notification
+
+methodreplace "%smali%/com/xiaomi/activate/ActivateProgressController.smali" ".method private notifyUnactivatedSimCards(Landroid/content/Context;I)V" "%here%/XiaomiServiceFramework.apk/notifyUnactivatedSimCards.m";

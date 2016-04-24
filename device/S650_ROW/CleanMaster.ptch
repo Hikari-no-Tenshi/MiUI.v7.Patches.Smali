@@ -1,0 +1,4 @@
+appfile <CleanMaster.apk>;
+
+# Change Device
+replaceinfile "%smali%/com/miui/common/StorageHelper.smali" "HM2014011" "S650_ROW";

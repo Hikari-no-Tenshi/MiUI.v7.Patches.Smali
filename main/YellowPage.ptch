@@ -1,0 +1,5 @@
+appfile <YellowPage.apk>;
+
+# Fix compilation
+
+delete "%res%/drawable-xhdpi";

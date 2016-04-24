@@ -1,0 +1,19 @@
+appfile <framework.jar>;
+
+# Move cursor with volume keys
+
+replaceinfile "%smali%/android/inputmethodservice/InputMethodService.smali" ".field static final TAG:Ljava/lang/String; = "InputMethodService"" ".field static final TAG:Ljava/lang/String; = "InputMethodService"\n\n    .field public static final VOLUME_CURSOR_OFF:I = 0x0\n\n    .field public static final VOLUME_CURSOR_ON:I = 0x1\n\n    .field public static final VOLUME_CURSOR_ON_REVERSE:I = 0x2";
+
+replaceinfile "%smali%/android/inputmethodservice/InputMethodService.smali" ".field mToken:Landroid/os/IBinder;" ".field mToken:Landroid/os/IBinder;\n\n    .field mVolumeKeyCursorControl:I";
+
+replaceinfile "%smali%/android/inputmethodservice/InputMethodService.smali" "invoke-direct {p0}, Landroid/inputmethodservice/AbstractInputMethodService;-><init>()V" "invoke-direct {p0}, Landroid/inputmethodservice/AbstractInputMethodService;-><init>()V\n\n    iput v0, p0, Landroid/inputmethodservice/InputMethodService;->mVolumeKeyCursorControl:I";
+
+methodreplace "%smali%/android/inputmethodservice/InputMethodService.smali" ".method public onKeyDown(ILandroid/view/KeyEvent;)Z" "%here%/framework.jar/onKeyDown.m";
+
+methodreplace "%smali%/android/inputmethodservice/InputMethodService.smali" ".method public onKeyUp(ILandroid/view/KeyEvent;)Z" "%here%/framework.jar/onKeyUp.m";
+
+replaceinfile "%smali%/android/provider/Settings$System.smali" ".field public static final VOLUME_FM:Ljava/lang/String; = "volume_fm"" ".field public static final VOLUME_FM:Ljava/lang/String; = "volume_fm"\n\n    .field public static final VOLUME_KEY_CURSOR_CONTROL:Ljava/lang/String; = "volume_key_cursor_control"";
+
+# Volume steps
+
+replaceinfile "%smali%/android/media/AudioService.smali" "        0x6\n        0xf\n        0xf\n        0xf\n        0xf\n        0xf\n        0xf\n        0xf\n        0xf\n        0xf\n        0xf\n        0xf" "        0x1e\n        0x1e\n        0x1e\n        0x1e\n        0x1e\n        0x1e\n        0x1e\n        0x1e\n        0x1e\n        0x1e\n        0x1e\n        0x1e";

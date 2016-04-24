@@ -1,0 +1,5 @@
+appfile <miuisystem.apk>;
+
+# Change Device
+replaceinfile "%smali%/miui/os/Build.smali" "HM2014011" "S650_ROW";
+replaceinfile "%smali%/miui/util/HardwareInfo.smali" "HM2014011" "S650_ROW";

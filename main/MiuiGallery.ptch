@@ -1,0 +1,13 @@
+appfile <MiuiGallery.apk>;
+
+# Fix invalid xml tags
+
+# UK
+
+replaceinfile "%smali%/../res/values-uk/strings.xml"    "?  "    "? "</Data>" ";
+replaceinfile "%smali%/../res/values-uk/strings.xml"    ".  "    ". "</Data>" ";
+
+# RU
+
+replaceinfile "%smali%/../res/values-ru/strings.xml"    "?  "    "? "</Data>" ";
+replaceinfile "%smali%/../res/values-ru/strings.xml"    ".  "    ". "</Data>" ";

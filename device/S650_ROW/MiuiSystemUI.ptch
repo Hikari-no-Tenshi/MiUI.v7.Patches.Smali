@@ -1,0 +1,8 @@
+appfile <MiuiSystemUI.apk>;
+
+# Remove garbage
+
+delete "%res%/drawable-hdpi-v4/tab_notifications_bg_n.9.png";
+delete "%res%/drawable-hdpi-v4/tab_notifications_bg_p.9.png";
+delete "%res%/drawable-hdpi-v4/tab_toggles_bg_n.9.png";
+delete "%res%/drawable-hdpi-v4/tab_toggles_bg_p.9.png";

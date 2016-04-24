@@ -1,0 +1,6 @@
+appfile <MiuiKeyguard.apk>;
+
+# Fix compilation
+
+delete "%res%/drawable-xhdpi";
+delete "%res%/drawable-xxhdpi";

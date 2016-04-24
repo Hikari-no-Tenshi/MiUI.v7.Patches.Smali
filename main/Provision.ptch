@@ -1,0 +1,7 @@
+appfile <Provision.apk>;
+
+# Add 18 framework to apktool.yml
+
+replaceinfile "%smali%/../apktool.yml" "- 16" "- 16\n  - 18";
+#replaceinfile "%smali%/../apktool.yml" "  tag:" "  - 18\n  tag:";
+#replaceinfile "%smali%/../apktool.yml" "sdkInfo:" "  - 18\nsdkInfo:";

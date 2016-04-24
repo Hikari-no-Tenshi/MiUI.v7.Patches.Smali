@@ -1,0 +1,13 @@
+appfile <Contacts.apk>;
+
+# Add 18 framework to apktool.yml
+
+replaceinfile "%smali%/../apktool.yml" "- 16" "- 16\n  - 18";
+#replaceinfile "%smali%/../apktool.yml" "  tag:" "  - 18\n  tag:";
+#replaceinfile "%smali%/../apktool.yml" "sdkInfo:" "  - 18\nsdkInfo:";
+
+# Contact name in 2 lines
+
+replaceinfile "%smali%/com/android/contacts/list/ContactListItemView.smali" "    iget-object v0, p0, Lcom/android/contacts/list/ContactListItemView;->mNameTextView:Landroid/widget/TextView;\n\n    const/4 v1, 0x1\n\n    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setSingleLine(Z)V" "    iget-object v0, p0, Lcom/android/contacts/list/ContactListItemView;->mNameTextView:Landroid/widget/TextView;\n\n    const/4 v1, 0x0\n\n    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setSingleLine(Z)V";
+replaceinfile "%res%/layout/dialer_list_call_normal_item.xml" "android:id="@id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true"" "android:id="@id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2"";
+replaceinfile "%res%/layout/dialer_list_contact_normal_item.xml" "android:id="@id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true"" "android:id="@id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2"";

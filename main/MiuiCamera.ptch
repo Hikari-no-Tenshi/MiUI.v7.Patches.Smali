@@ -1,0 +1,6 @@
+appfile <MiuiCamera.apk>;
+
+# Record video to mp4
+
+replaceinfile "%smali%/com/android/camera/module/VideoModule.smali" "const-string v0, ".3gp"" "const-string v0, ".mp4"";
+replaceinfile "%smali%/com/android/camera/module/VideoModule.smali" "const-string v0, "video/3gpp"" "const-string v0, "video/mp4"";

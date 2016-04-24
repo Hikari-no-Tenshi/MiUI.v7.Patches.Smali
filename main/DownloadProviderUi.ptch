@@ -1,0 +1,13 @@
+appfile <DownloadProviderUi.apk>;
+
+# Fix compilation
+
+delete "%res%/drawable-xhdpi";
+
+# Restore settings
+
+replaceinfile "%smali%/com/android/providers/downloads/ui/fragment/DownloadSettingFragment.smali" "iget-object v4, p0, Lcom/android/providers/downloads/ui/fragment/DownloadSettingFragment;->mDownloadPathPref:Lcom/android/providers/downloads/ui/view/DownloadPathPreference;\n\n    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z" "iget-object v4, p0, Lcom/android/providers/downloads/ui/fragment/DownloadSettingFragment;->mDownloadPathPref:Lcom/android/providers/downloads/ui/view/DownloadPathPreference;";
+
+replaceinfile "%smali%/com/android/providers/downloads/ui/fragment/DownloadSettingFragment.smali" "iget-object v4, p0, Lcom/android/providers/downloads/ui/fragment/DownloadSettingFragment;->mLimitedSizePref:Landroid/preference/Preference;\n\n    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z" "iget-object v4, p0, Lcom/android/providers/downloads/ui/fragment/DownloadSettingFragment;->mLimitedSizePref:Landroid/preference/Preference;";
+
+replaceinfile "%smali%/com/android/providers/downloads/ui/fragment/DownloadSettingFragment.smali" "iget-object v4, p0, Lcom/android/providers/downloads/ui/fragment/DownloadSettingFragment;->mXunleiUsagePref:Landroid/preference/CheckBoxPreference;\n\n    invoke-virtual {v3, v4}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z" "iget-object v4, p0, Lcom/android/providers/downloads/ui/fragment/DownloadSettingFragment;->mXunleiUsagePref:Landroid/preference/CheckBoxPreference;";
