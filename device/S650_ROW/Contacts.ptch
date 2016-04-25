@@ -2,12 +2,12 @@ appfile <Contacts.apk>;
 
 # Remove garbage
 
-delete "%res%/drawable-hdpi-v4/btn_call_sim1_normal.9.png";
-delete "%res%/drawable-hdpi-v4/btn_call_sim1_press.9.png";
-delete "%res%/drawable-hdpi-v4/btn_call_sim2_normal.9.png";
-delete "%res%/drawable-hdpi-v4/btn_call_sim2_press.9.png";
-delete "%res%/drawable-hdpi-v4/dialer_background.9.png";
-delete "%res%/drawable-hdpi-v4/dialer_bottom_bar_bg.9.png";
+#delete "%res%/drawable-hdpi-v4/btn_call_sim1_normal.9.png";
+#delete "%res%/drawable-hdpi-v4/btn_call_sim1_press.9.png";
+#delete "%res%/drawable-hdpi-v4/btn_call_sim2_normal.9.png";
+#delete "%res%/drawable-hdpi-v4/btn_call_sim2_press.9.png";
+#delete "%res%/drawable-hdpi-v4/dialer_background.9.png";
+#delete "%res%/drawable-hdpi-v4/dialer_bottom_bar_bg.9.png";
 delete "%res%/drawable-hdpi-v4/dialer_btn_close_dialpad_normal.png";
 delete "%res%/drawable-hdpi-v4/dialer_btn_close_dialpad_pressed.png";
 delete "%res%/drawable-hdpi-v4/dialer_btn_delete_normal.png";
